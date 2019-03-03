@@ -1,0 +1,32 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Node.js Learning</title>
+    <script type="text/javascript" src="https://static.ouorz.com/vue.min.js"></script>
+    <script type="text/javascript" src="https://static.ouorz.com/axios.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.min.js"></script>
+</head>
+<body>
+   
+    <div id="container" style="text-align: center">
+        <h1>{{ message }}</h1>
+    </div>
+    
+    <script>
+    
+        var view = new Vue({
+            el: '#container',
+            data:{
+                message: 'nothing'
+            },
+            mounted(){
+                axios.get('http://localhost:88')
+                .then(response => {
+                this.message = response.data.mes;
+            })
+            }
+        })
+        
+    </script>
+</body>
+</html>
